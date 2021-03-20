@@ -7,10 +7,13 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Avatar from "@material-ui/core/Avatar";
+import InboxIcon from "@material-ui/icons/Inbox";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+
 import ImageIcon from "@material-ui/icons/Image";
 import WorkIcon from "@material-ui/icons/Work";
 import BeachAccessIcon from "@material-ui/icons/BeachAccess";
-
+import "./landingPage.css";
 import {
   XYPlot,
   Borders,
@@ -36,14 +39,16 @@ const useStyles = makeStyles((theme) => ({
 
 const data = [
   { x: 1, y: 10, y0: 1 },
-  { x: 2, y: 25, y0: 5 },
-  { x: 3, y: 15, y0: 3 },
-  { x: 4, y: 1, y0: 10 },
-  { x: 5, y: 30, y0: 5 },
-  { x: 6, y: 6, y0: 6 },
-  { x: 7, y: 30, y0: 7 },
-  { x: 8, y: 2, y0: 8 },
-  { x: 9, y: 10, y0: 9 },
+  { x: 2, y: 25, y0: 1 },
+  { x: 3, y: 105, y0: 1 },
+  { x: 4, y: 405, y0: 1 },
+  { x: 5, y: 300, y0: 1 },
+  { x: 6, y: 709, y0: 1 },
+  { x: 7, y: 300, y0: 1 },
+  { x: 8, y: 300, y0: 1 },
+  { x: 9, y: 150, y0: 1 },
+  { x: 10, y: 300, y0: 1 },
+  { x: 11, y: 690, y0: 1 },
 ];
 
 const myData = [{ angle: 1 }, { angle: 5 }, { angle: 2 }];
@@ -53,17 +58,21 @@ const LandingPage = () => {
   return (
     <>
       <Grid container>
-        <Grid xs={6} sm={3}>
-          <p>Votes summary</p>
+        <Grid item xs={12}>
+          <h4 className="header" style={{ align: "center" }}>
+            Votes summary
+          </h4>
         </Grid>
-        <Grid xs={6} sm={3}>
-          <p>19,005 Votes over past 30 days</p>
+        <Grid className="numbers" container>
+          <Grid item xs={3}>
+            <p className="numbers">9,005 Votes over past 30 days</p>
+          </Grid>
+          <Grid item xs={3}>
+            <p className="numbers">19,005 Votes over past 30 days</p>
+          </Grid>
         </Grid>
       </Grid>
 
-      <p>Votes summary</p>
-
-      <p>100,054 Votes this year</p>
       <XYPlot width={1300} height={300}>
         <GradientDefs>
           <linearGradient id="CoolGradient" data={data}>
@@ -101,7 +110,8 @@ const LandingPage = () => {
                     <ImageIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Abbey library" secondary=" 2014" />
+                <ListItemText primary="Abbey library" secondary="Repairement" />
+                <span>3000 </span>
               </ListItem>
               <ListItem>
                 <ListItemAvatar>
@@ -109,7 +119,11 @@ const LandingPage = () => {
                     <WorkIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Road restoration" secondary="302" />
+                <ListItemText
+                  primary="Road restoration"
+                  secondary="Building project"
+                />
+                <span>1500 </span>
               </ListItem>
               <ListItem>
                 <ListItemAvatar>
@@ -117,23 +131,23 @@ const LandingPage = () => {
                     <BeachAccessIcon />
                   </Avatar>
                 </ListItemAvatar>
-                <ListItemText primary="Chirch renovating" secondary="156" />
+                <ListItemText primary="Playground renovating" secondary="156" />
+                <span>500 </span>
               </ListItem>
             </List>
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid>
           <Paper className={classes.paper}>
             Compare projects
-            <RadialChart data={myData} width={300} height={300} />
+            <Grid xs={5}>
+              <RadialChart data={myData} width={300} height={300} />
+            </Grid>
+            <Grid item xs={3}>
+              Text
+            </Grid>
             The most voted projects is <bold>Abbey library</bold>
           </Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>more data</Paper>
-        </Grid>
-        <Grid item xs={6} sm={3}>
-          <Paper className={classes.paper}>data</Paper>
         </Grid>
       </Grid>
     </>

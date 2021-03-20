@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+}
+.numbers {
+  display: flex;
+  justify-content: center;
+}
