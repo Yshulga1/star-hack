@@ -6,8 +6,9 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import Grid from "@material-ui/core/Grid";
 import "./Sections/Navbar.css";
-
+import logo from "../../../assets/Logo_SG.png";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -44,20 +45,19 @@ function NavBar() {
   };
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        Logo here Statistic Dashboard
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="simple tabs example"
-        >
-          <Tab label="Item One" />
-        </Tabs>
-      </AppBar>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
+    <div
+      style={{
+        boxShadow: "0 8px 6px -6px  grey",
+        width: "100%",
+        height: "40px",
+      }}
+    >
+      <Grid container>
+        <Grid item xs={6} sm={3}>
+          <img style={{ width: "100px" }} src={logo} alt="st.gallen" />
+        </Grid>
+        Statistic Dashboard
+      </Grid>
     </div>
   );
 }

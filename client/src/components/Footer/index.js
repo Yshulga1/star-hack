@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 const Footer = () => {
-  return <>Hello</>;
+  return <>Budgeterian </>;
 };
 
 export default Footer;
